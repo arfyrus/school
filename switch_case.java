@@ -3,71 +3,71 @@ import java.util.Scanner;
 public class Main {
     public static void main(String args[]) {
         Scanner input = new Scanner(System.in);
-        System.out.print("Input mark: ");
-        int mark = input.nextInt();
-        String grade;
+        System.out.print("Masukkan markah: ");
+        int markah = input.nextInt();
+        String Gred;
 
         //Using if-else-if:
-        if (mark >= 90) {
-            grade = "A+";
-        } else if (mark >= 80) {
-            grade = "A";
-        } else if (mark >= 75) {
-            grade = "B+";
-        } else if (mark >= 65) {
-            grade = "B";
-        } else if (mark >= 60) {
-            grade = "C+";
-        } else if (mark >= 50) {
-            grade = "C";
-        } else if (mark >= 45) {
-            grade = "D";
-        } else if (mark >= 40) {
-            grade = "E";
-        } else if (mark >= 0) {
-            grade = "G";
+        if (markah >= 90) {
+            Gred = "A+";
+        } else if (markah >= 80) {
+            Gred = "A";
+        } else if (markah >= 75) {
+            Gred = "B+";
+        } else if (markah >= 65) {
+            Gred = "B";
+        } else if (markah >= 60) {
+            Gred = "C+";
+        } else if (markah >= 50) {
+            Gred = "C";
+        } else if (markah >= 45) {
+            Gred = "D";
+        } else if (markah >= 40) {
+            Gred = "E";
+        } else if (markah >= 0) {
+            Gred = "G";
         } else {
-            grade = "Invalid";
+            Gred = "Gred yang diberi bukan di antara 0 dan 100.";
         }
 
-        System.out.println("Grade: " + grade);
+        System.out.println("Gred: " + Gred);
 
         // Using switch-case:
-        mark = (int) Math.floor(mark / 5);
+        markah = (int) Math.floor(markah / 5);
 
-        switch (mark) {
+        switch (markah) {
             case 20: case 19: case 18:
-                grade = "A+";
+                Gred = "A+";
                 break;
             case 17: case 16:
-                grade = "A";
+                Gred = "A";
                 break;
             case 15:
-                grade = "B+";
+                Gred = "B+";
                 break;
             case 14: case 13:
-                grade = "B";
+                Gred = "B";
                 break;
             case 12:
-                grade = "C+";
+                Gred = "C+";
                 break;
             case 11: case 10:
-                grade = "C";
+                Gred = "C";
                 break;
             case 9:
-                grade = "D";
+                Gred = "D";
                 break;
             case 8:
-                grade = "E";
+                Gred = "E";
                 break;
             case 7: case 6: case 5: case 4: case 3: case 2: case 1: case 0:
-                grade = "G";
+                Gred = "G";
                 break;
             default:
-                grade = "Invalid";
+                Gred = "Gred yang diberi bukan di antara 0 dan 100.";
                 break;
         }
 
-        System.out.println("Grade: " + grade);
+        System.out.println("Gred: " + Gred);
     }
 }
