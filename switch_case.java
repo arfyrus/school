@@ -6,6 +6,8 @@ public class Main {
         System.out.print("Input mark: ");
         int mark = input.nextInt();
         String grade;
+
+        //Using if-else-if:
         if (mark >= 90) {
             grade = "A+";
         } else if (mark >= 80) {
@@ -30,6 +32,7 @@ public class Main {
 
         System.out.println("Grade: " + grade);
 
+        // Using switch-case:
         mark = (int) Math.floor(mark / 5);
 
         switch (mark) {
@@ -64,6 +67,7 @@ public class Main {
                 grade = "Invalid";
                 break;
         }
+
         System.out.println("Grade: " + grade);
     }
 }
