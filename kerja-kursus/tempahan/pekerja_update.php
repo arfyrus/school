@@ -1,13 +1,13 @@
 <?php
 include("sambungan.php");
-include("jurujual_menu.php");
+include("pekerja_menu.php");
 
 if (isset($_POST['submit'])) {
-    $idjurujual = $_POST['idjurujual'];
-    $namajurujual = $_POST['namajurujual'];
+    $id_pelanggan = $_POST['id_pelanggan'];
+    $nama_pekerja = $_POST['nama_pekerja'];
     $password = $_POST['password'];
 
-    $sql = "UPDATE jurujual SET namajurujual='$namajurujual', password='$password' WHERE idjurujual='$idjurujual'";
+    $sql = "UPDATE pekerja SET nama_pekerja='$nama_pekerja', password='$password' WHERE id_pelanggan='$id_pelanggan'";
     $result = mysqli_query($sambungan, $sql);
     if ($result == true)
         echo "<h4>Berjaya kemaskini</h4>";
@@ -15,15 +15,15 @@ if (isset($_POST['submit'])) {
         echo "<h4>Ralat: $sql<br>" . mysqli_error($sambungan) . "</h4>";
 }
 
-if (isset($_GET['idjurujual']))
-    $idjurujual = $_GET['idjurujual'];
+if (isset($_GET['id_pelanggan']))
+    $id_pelanggan = $_GET['id_pelanggan'];
 
-$sql = "SELECT * FROM jurujual WHERE idjurujual='$idjurujual'";
+$sql = "SELECT * FROM pekerja WHERE id_pelanggan='$id_pelanggan'";
 $result = mysqli_query($sambungan, $sql);
 
-while ($jurujual = mysqli_fetch_array($result)) {
-    $password = $jurujual['password'];
-    $namajurujual = $jurujual['namajurujual'];
+while ($pekerja = mysqli_fetch_array($result)) {
+    $password = $pekerja['password'];
+    $nama_pekerja = $pekerja['nama_pekerja'];
 }
 ?>
 
@@ -31,15 +31,15 @@ while ($jurujual = mysqli_fetch_array($result)) {
 <link rel="stylesheet" href="abutton.css">
 
 <h3 class="panjang">KEMASKINI JURUJUAL</h3>
-<form class="panjang" action="jurujual_update.php" method="post">
+<form class="panjang" action="pekerja_update.php" method="post">
     <table>
         <tr>
             <td>ID Jurujual</td>
-            <td><input type="text" name="idjurujual" value="<?php echo $idjurujual; ?>"></td>
+            <td><input type="text" name="id_pelanggan" value="<?php echo $id_pelanggan; ?>"></td>
         </tr>
         <tr>
             <td>Nama Jurujual</td>
-            <td><input type="text" name="namajurujual" value="<?php echo $namajurujual; ?>"></td>
+            <td><input type="text" name="nama_pekerja" value="<?php echo $nama_pekerja; ?>"></td>
         </tr>
         <tr>
             <td>Password</td>

@@ -21,7 +21,7 @@
         <li>
            <?php
                if (isset($_SESSION["idpengguna"])) 
-                   echo "<a href='tempahan_senarai.php'><b>TEMPAHAN</b></a>";
+                   echo "<a href='pesanan_senarai.php'><b>TEMPAHAN</b></a>";
                else     
                    echo "<a href='javascript:papar();'><b>TEMPAHAN</b></a>";
             ?> 
@@ -45,13 +45,13 @@
           $sql = "select * from pelanggan where no_telefon = '$no_telefon' "; 
           $result = mysqli_query($sambungan, $sql);
           $pelanggan = mysqli_fetch_array($result);   
-          echo "Selamat datang $pelanggan[namapelanggan]";
+          echo "Selamat datang $pelanggan[nama_pelanggan]";
        } 
     ?> 
 </nav>
 
 <script>
     function papar() {
-        alert("Sila login untuk melihat tempahan");
+        alert("Sila login untuk melihat pesanan");
     }
 </script>

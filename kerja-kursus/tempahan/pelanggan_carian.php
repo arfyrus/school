@@ -1,6 +1,6 @@
 <?php
     include("sambungan.php");
-    include("jurujual_menu.php");
+    include("pekerja_menu.php");
 ?>
 
 <link rel="stylesheet" href="aborang.css">
@@ -19,7 +19,7 @@
                         $data = mysqli_query($sambungan, $sql);
                         while($pelanggan = mysqli_fetch_array($data)){
                             echo "<option value='$pelanggan[no_telefon]'>
-                            $pelanggan[namapelanggan]</option>";
+                            $pelanggan[nama_pelanggan]</option>";
                         }
                     ?>
                     </select>

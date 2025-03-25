@@ -14,8 +14,8 @@
         <li>
             <a href="#"><b>JURUJUAL</b></a>
             <ul>
-                <li><a href="jurujual_insert.php">Tambah</a></li>
-                <li><a href="jurujual_senarai.php">Senarai</a></li>
+                <li><a href="pekerja_insert.php">Tambah</a></li>
+                <li><a href="pekerja_senarai.php">Senarai</a></li>
             </ul>
         </li>
     </ul>

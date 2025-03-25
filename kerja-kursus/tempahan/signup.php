@@ -5,9 +5,9 @@
     if (isset($_POST["submit"])) {
         $no_telefon = $_POST["no_telefon"];
         $password = $_POST["password"];
-        $namapelanggan = $_POST["namapelanggan"];
+        $nama_pelanggan = $_POST["nama_pelanggan"];
 
-        $sql = "INSERT INTO pelanggan VALUES ('$no_telefon', '$password', '$namapelanggan')";
+        $sql = "INSERT INTO pelanggan VALUES ('$no_telefon', '$password', '$nama_pelanggan')";
         echo $sql;
         $result = mysqli_query($sambungan, $sql);
         if ($result)
@@ -48,7 +48,7 @@
             </tr>
             <tr>
                 <td>Nama Pelanggan</td>
-                <td><input required type="text" name="namapelanggan"></td>
+                <td><input required type="text" name="nama_pelanggan"></td>
             </tr>
             <tr>
                 <td>Password</td>

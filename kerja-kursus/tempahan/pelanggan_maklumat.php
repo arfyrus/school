@@ -1,6 +1,6 @@
 <?php
     include("sambungan.php");
-    include("jurujual_menu.php");
+    include("pekerja_menu.php");
 
 	$no_telefon = $_POST["no_telefon"];
 
@@ -8,7 +8,7 @@
 
 	$result = mysqli_query($sambungan, $sql);
 	while($pelanggan = mysqli_fetch_array($result)) {
-            $namapelanggan = $pelanggan["namapelanggan"];
+            $nama_pelanggan = $pelanggan["nama_pelanggan"];
             $password = $pelanggan["password"];
 	}
 ?>
@@ -29,7 +29,7 @@
         </tr>
         <tr>
             <td class="maklumat">Nama</td>
-            <td class="maklumat"><?php echo $namapelanggan; ?></td>
+            <td class="maklumat"><?php echo $nama_pelanggan; ?></td>
         </tr>
         <tr>
             <td class="maklumat">Password</td>

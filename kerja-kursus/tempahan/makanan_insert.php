@@ -1,18 +1,18 @@
 <?php
 include("sambungan.php");
-include("jurujual_menu.php");
+include("pekerja_menu.php");
 
 if (isset($_POST['submit'])) {
-    $idmakanan = $_POST['idmakanan'];
-    $namamakanan = $_POST['namamakanan'];
+    $id_makanan = $_POST['id_makanan'];
+    $nama_makanan = $_POST['nama_makanan'];
     $harga = $_POST['harga'];
-    $idjurujual = $_POST['idjurujual'];
+    $id_pelanggan = $_POST['id_pelanggan'];
 
-    $namafail = $idmakanan.".png";
+    $namafail = $id_makanan.".png";
     $sementara = $_FILES['namafail']['tmp_name'];
     move_uploaded_file($sementara, "imej/".basename($namafail));
 
-    $sql = "INSERT INTO makanan values ('$idmakanan', '$namamakanan', '$namafail', '$harga', '$idjurujual')";
+    $sql = "INSERT INTO makanan values ('$id_makanan', '$nama_makanan', '$namafail', '$harga', '$id_pelanggan')";
     $result = mysqli_query($sambungan, $sql);
     if ($result == true)
         echo "<h4>Rekod berjaya disimpan</h4>";
@@ -29,11 +29,11 @@ if (isset($_POST['submit'])) {
     <table>
         <tr>
             <td>ID Makanan</td>
-            <td><input required type="text" name="idmakanan"></td>
+            <td><input required type="text" name="id_makanan"></td>
         </tr>
         <tr>
             <td>Nama Makanan</td>
-            <td><input type="text" name="namamakanan"></td>
+            <td><input type="text" name="nama_makanan"></td>
         </tr>
         <tr>
             <td>Gambar 350x320</td>
@@ -44,14 +44,14 @@ if (isset($_POST['submit'])) {
             <td><input type="text" name="harga"></td>
         </tr>
         <tr>
-            <td>jurujual</td>
+            <td>pekerja</td>
             <td>
-                <select name="idjurujual">
+                <select name="id_pelanggan">
                 <?php
-                    $sql = "SELECT * FROM jurujual";
+                    $sql = "SELECT * FROM pekerja";
                     $data = mysqli_query($sambungan, $sql);
-                    while ($jurujual = mysqli_fetch_array($result)) {
-                        echo "<option value='$jurujual[idjurujual]'>$jurujual[namajurujual]</option>";
+                    while ($pekerja = mysqli_fetch_array($result)) {
+                        echo "<option value='$pekerja[id_pelanggan]'>$pekerja[nama_pekerja]</option>";
                     }
                 ?>
                 </select>

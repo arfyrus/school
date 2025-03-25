@@ -1,13 +1,13 @@
 <?php
 include("sambungan.php");
-include("jurujual_menu.php");
+include("pekerja_menu.php");
 
 if (isset($_POST["submit"])) {
-    $idjurujual = $_POST["idjurujual"];
+    $id_pelanggan = $_POST["id_pelanggan"];
     $password = $_POST["password"];
-    $namajurujual = $_POST["namajurujual"];
+    $nama_pekerja = $_POST["nama_pekerja"];
 
-    $sql = "INSERT INTO jurujual VALUES ('$idjurujual', '$password', '$namajurujual')";
+    $sql = "INSERT INTO pekerja VALUES ('$id_pelanggan', '$password', '$nama_pekerja')";
     $result = mysqli_query($sambungan, $sql);
     if ($result == true)
         echo "<h4>Berjaya tambah</h4>";
@@ -20,15 +20,15 @@ if (isset($_POST["submit"])) {
 <link rel="stylesheet" href="abutton.css">
 
 <h3 class="panjang">BORANG TAMBAH JURUJUAL</h3>
-<form class="panjang" action="jurujual_insert.php" method="post">
+<form class="panjang" action="pekerja_insert.php" method="post">
     <table>
         <tr>
             <td>ID Jurujual</td>
-            <td><input required type="text" name="idjurujual"></td>
+            <td><input required type="text" name="id_pelanggan"></td>
         </tr>
         <tr>
             <td>Nama Jurujual</td>
-            <td><input type="text" name="namajurujual"></td>
+            <td><input type="text" name="nama_pekerja"></td>
         </tr>
         <tr>
             <td>Password</td>

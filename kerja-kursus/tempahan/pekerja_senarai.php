@@ -1,10 +1,10 @@
 <?php
     include("sambungan.php");
-    include("jurujual_menu.php");
+    include("pekerja_menu.php");
 ?>
 
 <link rel="stylesheet" href="asenarai.css">
-<table class="jurujual">
+<table class="pekerja">
     <caption>SENARAI NAMA JURUJUAL</caption>
     <tr>
         <th>ID</th>
@@ -14,20 +14,20 @@
     </tr>
 
 <?php
-$sql = "SELECT * FROM jurujual";
+$sql = "SELECT * FROM pekerja";
 $result = mysqli_query($sambungan, $sql);
-while ($jurujual = mysqli_fetch_array($result)) {
-    $idjurujual = $jurujual['idjurujual'];
-    echo "<tr> <td>$jurujual[idjurujual]</td>
-    <td class='nama'>$jurujual[namajurujual]</td>
-    <td>$jurujual[password]</td>
+while ($pekerja = mysqli_fetch_array($result)) {
+    $id_pelanggan = $pekerja['id_pelanggan'];
+    echo "<tr> <td>$pekerja[id_pelanggan]</td>
+    <td class='nama'>$pekerja[nama_pekerja]</td>
+    <td>$pekerja[password]</td>
     <td>
-    <a href='jurujual_update.php?idjurujual=$idjurujual'>
+    <a href='pekerja_update.php?id_pelanggan=$id_pelanggan'>
     <img src='imej/update.png'>
     </a>
     </td>
     <td>
-    <a href='javascript:padam(\"$idjurujual\")'>
+    <a href='javascript:padam(\"$id_pelanggan\")'>
     <img src='imej/delete.png'>
     </a>
     </td>
@@ -39,7 +39,7 @@ while ($jurujual = mysqli_fetch_array($result)) {
 <script>
     function padam(id) {
         if (confirm("Adakah anda ingin padam") == true) {
-            window.location = "jurujual_delete.php?idjurujual=" + id;
+            window.location = "pekerja_delete.php?id_pelanggan=" + id;
         }
     }
 </script>

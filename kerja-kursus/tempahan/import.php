@@ -1,6 +1,6 @@
 <?php 
     include("sambungan.php"); 
-    include("jurujual_menu.php");
+    include("pekerja_menu.php");
 
     if (isset($_POST["submit"])) {
         $namajadual = $_POST["namajadual"];
@@ -16,19 +16,19 @@
             if (strtolower($namajadual) === "pelanggan") {
                 $no_telefon = $medan[0];
                 $password = $medan[1];
-                $namapelanggan = $medan[2];
-                $sql = "insert into pelanggan values('$no_telefon', '$password', '$namapelanggan')";
+                $nama_pelanggan = $medan[2];
+                $sql = "insert into pelanggan values('$no_telefon', '$password', '$nama_pelanggan')";
                 if (mysqli_query($sambungan, $sql))
                     $berjaya = true; 
                 else
                     echo "<br><center>Ralat: $sql<br>".mysqli_error($sambungan)."</center>";
             }
 
-            if (strtolower($namajadual) === "jurujual") {
-                $idjurujual = $medan[0];
+            if (strtolower($namajadual) === "pekerja") {
+                $id_pelanggan = $medan[0];
                 $password = $medan[1];
-                $namajurujual = $medan[2];
-                $sql = "insert into jurujual values('$idjurujual', '$password', '$namajurujual')";
+                $nama_pekerja = $medan[2];
+                $sql = "insert into pekerja values('$id_pelanggan', '$password', '$nama_pekerja')";
                 if (mysqli_query($sambungan, $sql))
                     $berjaya = true;
                 else 

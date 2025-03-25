@@ -8,7 +8,7 @@
     $sql = "select * from pelanggan where no_telefon = '$no_telefon'"; 
     $result = mysqli_query($sambungan, $sql);
     $pelanggan = mysqli_fetch_array($result);
-    $namapelanggan = $pelanggan['namapelanggan'];
+    $nama_pelanggan = $pelanggan['nama_pelanggan'];
 
     date_default_timezone_set("Asia/Kuala_Lumpur");
     $today = date('Y-m-d');
@@ -31,30 +31,30 @@
     <?php
         $bayaran = 0;
          
-        $sql = "select * from tempahan 
-                join makanan on tempahan.idmakanan = makanan.idmakanan
-                join pelanggan on tempahan.no_telefon = pelanggan.no_telefon
-                where tempahan.no_telefon = '$no_telefon' and tarikh = '$today' ";
+        $sql = "select * from pesanan 
+                join makanan on pesanan.id_makanan = makanan.id_makanan
+                join pelanggan on pesanan.no_telefon = pelanggan.no_telefon
+                where pesanan.no_telefon = '$no_telefon' and tarikh = '$today' ";
         $result = mysqli_query($sambungan, $sql);
     
 
         while($makanan = mysqli_fetch_array($result)) {
-             $idmakanan = $makanan['idmakanan'];    
+             $id_makanan = $makanan['id_makanan'];    
              $bilangan = $makanan['bilangan'];    
              $jumlah = $makanan['bilangan'] * $makanan['harga'];
              $jumlah_format = number_format($jumlah, 2);    
-             echo "<tr> <td>$makanan[idmakanan]</td>
-                        <td>$makanan[namamakanan]</td>
+             echo "<tr> <td>$makanan[id_makanan]</td>
+                        <td>$makanan[nama_makanan]</td>
                         <td>$makanan[bilangan]</td>
                         <td>
-                            <a href='javascript:kemaskini(\"$idmakanan\",\"$no_telefon\",\"$today\");'>
+                            <a href='javascript:kemaskini(\"$id_makanan\",\"$no_telefon\",\"$today\");'>
                                 <img src='imej/update.png'>
                             </a>
                         </td>
                         <td>RM $makanan[harga]</td>
                         <td>RM $jumlah_format</td>
                         <td>
-                            <a href='tempahan_delete.php?idmakanan=$idmakanan&&no_telefon=$no_telefon&&tarikh=$today'>
+                            <a href='pesanan_delete.php?id_makanan=$id_makanan&&no_telefon=$no_telefon&&tarikh=$today'>
                                  <img src='imej/delete.png'>
                             </a>
                          </td> 
@@ -66,13 +66,13 @@
         $tarikh = date_format(date_create($today), 'd-m-Y');
         echo "<td colspan = '5'>Jumlah Bayaran</td><td>RM $bayaran_format</td></tr>";
         echo "<caption>SENARAI TEMPAHAN<br><br>
-                  Nama : $namapelanggan Tarikh : $tarikh</caption>"; 
+                  Nama : $nama_pelanggan Tarikh : $tarikh</caption>"; 
     ?>
 </table>
 
 <script>
     function kemaskini(idm, idp, t) {
         var bil = prompt("Masukkan bilangan");
-        window.location = "tempahan_update.php?idmakanan=" + idm + "&&no_telefon=" + idp + "&&tarikh=" + t + "&&bilangan=" + bil;
+        window.location = "pesanan_update.php?id_makanan=" + idm + "&&no_telefon=" + idp + "&&tarikh=" + t + "&&bilangan=" + bil;
     }
 </script>

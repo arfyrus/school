@@ -1,6 +1,6 @@
 <?php
     include("sambungan.php");
-	include("jurujual_menu.php");
+	include("pekerja_menu.php");
 ?>
 
 <link rel="stylesheet" href="aborang.css">
@@ -23,7 +23,7 @@
             $sql = "select * from pelanggan";
             $data = mysqli_query($sambungan, $sql);
             while ($pelanggan = mysqli_fetch_array($data)) {
-               echo "<option value='$pelanggan[no_telefon]'>$pelanggan[namapelanggan]</option>";
+               echo "<option value='$pelanggan[no_telefon]'>$pelanggan[nama_pelanggan]</option>";
             }
         ?>
     </select>
@@ -32,10 +32,10 @@
         <select name="tarikh">
             <?php
                 include('sambungan.php');
-                $sql = "select * from tempahan group by tarikh order by tarikh desc";
+                $sql = "select * from pesanan group by tarikh order by tarikh desc";
                 $data = mysqli_query($sambungan, $sql);
-                while ($tempahan = mysqli_fetch_array($data)) {
-                   echo "<option value='$tempahan[tarikh]'>$tempahan[tarikh]</option>";
+                while ($pesanan = mysqli_fetch_array($data)) {
+                   echo "<option value='$pesanan[tarikh]'>$pesanan[tarikh]</option>";
                 }
             ?>
         </select>

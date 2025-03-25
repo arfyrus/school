@@ -13,9 +13,9 @@
             $result = mysqli_query($sambungan, $sql);
             while ($pelanggan["no_telefon"] == $userid && $pelanggan["password"] == $password) {
                 $jumpa = TRUE;
-                $_SESSION["no_telefon"] = $jurujual["idjurujual"];
+                $_SESSION["no_telefon"] = $pekerja["id_pelanggan"];
                 $_SESSION["nama"] = $pelanggan["nama"];
-                $_SESSION["status"] = "jurujual";
+                $_SESSION["status"] = "pekerja";
                 break;
             }
         }
@@ -23,7 +23,7 @@
         if ($jumpa == TRUE) {
             if ($_SESSION["status"] == "pelanggan") {
                 header("Location: index.php");
-            } else if ($_SESSION["status"] == "jurujual") {
+            } else if ($_SESSION["status"] == "pekerja") {
                 header("Location: makanan_senarai.php");
             }
         echo "<script>alert('ID pengguna atau kata laluan salah!');</script>";

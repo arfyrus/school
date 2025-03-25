@@ -1,6 +1,6 @@
 <?php
     include("sambungan.php");
-	include("jurujual_menu.php");
+	include("pekerja_menu.php");
 ?>
 
 <link rel="stylesheet" href="asenarai.css">
@@ -17,7 +17,7 @@
             $sql = "select * from pelanggan where no_telefon = '$no_telefon' "; 
             $result = mysqli_query($sambungan, $sql);
             $pelanggan = mysqli_fetch_array($result);
-            $namapelanggan = $pelanggan['namapelanggan'];
+            $nama_pelanggan = $pelanggan['nama_pelanggan'];
         
             if ($pilih == 1) {
                 echo "<table>
@@ -31,18 +31,18 @@
                 
                 $bayaran = 0;
                 
-                $sql = "select * from tempahan 
-                join makanan on tempahan.idmakanan = makanan.idmakanan
-                where tempahan.no_telefon = '$no_telefon' and tempahan.tarikh = '$tarikh' ";
+                $sql = "select * from pesanan 
+                join makanan on pesanan.id_makanan = makanan.id_makanan
+                where pesanan.no_telefon = '$no_telefon' and pesanan.tarikh = '$tarikh' ";
 
                 $result = mysqli_query($sambungan, $sql);
-                while($tempahan = mysqli_fetch_array($result)) {  
-                     $jumlah = $tempahan['bilangan'] * $tempahan['harga'];
+                while($pesanan = mysqli_fetch_array($result)) {  
+                     $jumlah = $pesanan['bilangan'] * $pesanan['harga'];
                      $jumlah_format = number_format($jumlah, 2);    
-                     echo "<tr> <td>$tempahan[idmakanan]</td>
-                                <td>$tempahan[namamakanan]</td>
-                                <td>$tempahan[bilangan]</td>
-                                <td>RM $tempahan[harga]</td>
+                     echo "<tr> <td>$pesanan[id_makanan]</td>
+                                <td>$pesanan[nama_makanan]</td>
+                                <td>$pesanan[bilangan]</td>
+                                <td>RM $pesanan[harga]</td>
                                 <td>RM $jumlah_format</td>
                            </tr>";
                      $bayaran = $bayaran + $jumlah;
@@ -51,7 +51,7 @@
                 
                 echo "<br><td colspan = 3><td>Jumlah Bayaran</td><td>RM $bayaran_format</td></tr>";
                 echo "<caption><img class=logo src='imej/logo.jpg'><br><img src='imej/namakedai.png' width=400><br>
-                          Nama : $namapelanggan Tarikh : $tarikh</caption>
+                          Nama : $nama_pelanggan Tarikh : $tarikh</caption>
                       </table>"; 
             }
            
@@ -64,20 +64,20 @@
                             <th>Bilangan</th>
                         </tr>";
                             
-                $sql = "select * from tempahan 
-                join makanan on tempahan.idmakanan = makanan.idmakanan
-                where tempahan.no_telefon = '$no_telefon' order by tarikh asc";
+                $sql = "select * from pesanan 
+                join makanan on pesanan.id_makanan = makanan.id_makanan
+                where pesanan.no_telefon = '$no_telefon' order by tarikh asc";
 
                 $result = mysqli_query($sambungan, $sql);
-                while($tempahan = mysqli_fetch_array($result)) {
-                     echo "<tr> <td>$tempahan[tarikh]</td>
-                                <td>$tempahan[idmakanan]</td>
-                                <td>$tempahan[namamakanan]</td>
-                                <td>$tempahan[bilangan]</td>
+                while($pesanan = mysqli_fetch_array($result)) {
+                     echo "<tr> <td>$pesanan[tarikh]</td>
+                                <td>$pesanan[id_makanan]</td>
+                                <td>$pesanan[nama_makanan]</td>
+                                <td>$pesanan[bilangan]</td>
                            </tr>";
                 }
                 echo "<caption>SENARAI TEMPAHAN<br><br>
-                         Nama : $namapelanggan</caption>
+                         Nama : $nama_pelanggan</caption>
                       </table>"; 
             }
        }

@@ -1,14 +1,14 @@
 <?php
     include("sambungan.php");
-    include("jurujual_menu.php");
+    include("pekerja_menu.php");
 
 	if (isset($_POST["submit"])) {
         $no_telefon = $_POST["no_telefon"];
 		$password = $_POST["password"];
-		$namapelanggan = $_POST["namapelanggan"];
+		$nama_pelanggan = $_POST["nama_pelanggan"];
 
 		$sql = "update pelanggan 
-                set password = '$password', namapelanggan = '$namapelanggan' 
+                set password = '$password', nama_pelanggan = '$nama_pelanggan' 
                 where no_telefon = '$no_telefon'";
 		$result = mysqli_query($sambungan, $sql);
 		if ($result == true)
@@ -23,7 +23,7 @@
 	$sql = "select * from pelanggan where no_telefon = '$no_telefon' ";
 	$result = mysqli_query($sambungan, $sql);
 	while($pelanggan = mysqli_fetch_array($result)) {
-		$namapelanggan = $pelanggan["namapelanggan"];
+		$nama_pelanggan = $pelanggan["nama_pelanggan"];
 		$password = $pelanggan["password"];
 	}
 ?>
@@ -40,7 +40,7 @@
         </tr>
         <tr>
             <td>Nama Pelanggan</td>
-            <td><input type="text" name="namapelanggan" value="<?php echo $namapelanggan; ?>"></td>
+            <td><input type="text" name="nama_pelanggan" value="<?php echo $nama_pelanggan; ?>"></td>
         </tr>
         <tr>
             <td>Password</td>

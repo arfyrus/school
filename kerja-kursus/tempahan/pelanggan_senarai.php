@@ -1,6 +1,6 @@
 <?php
     include("sambungan.php");
-	include("jurujual_menu.php");
+	include("pekerja_menu.php");
 ?>
 
 <link rel="stylesheet" href="asenarai.css">
@@ -19,7 +19,7 @@
         while($pelanggan = mysqli_fetch_array($result)) {
         $no_telefon = $pelanggan["no_telefon"];
         echo "<tr>  <td>$pelanggan[no_telefon]</td>
-                    <td class='nama'>$pelanggan[namapelanggan]</td>
+                    <td class='nama'>$pelanggan[nama_pelanggan]</td>
                     <td>$pelanggan[password]</td>
                     <td>
                         <a href='pelanggan_update.php?no_telefon=$no_telefon'>

@@ -1,13 +1,13 @@
 <?php
 	include("sambungan.php");
-	include("jurujual_menu.php");
+	include("pekerja_menu.php");
 
 	if (isset($_POST["submit"])) {
 		$no_telefon = $_POST["no_telefon"];
 		$password = $_POST["password"];
-		$namapelanggan = $_POST["namapelanggan"];
+		$nama_pelanggan = $_POST["nama_pelanggan"];
 
-		$sql = "insert into pelanggan values('$no_telefon', '$password', '$namapelanggan')";
+		$sql = "insert into pelanggan values('$no_telefon', '$password', '$nama_pelanggan')";
 		$result = mysqli_query($sambungan, $sql);
 		if ($result == true)
 			echo "<h4>Berjaya tambah</h4>";
@@ -49,7 +49,7 @@
         </tr>
         <tr>
             <td class="warna">Nama Pelanggan</td>
-            <td><input type="text" name="namapelanggan" placeholder="cth: Hajar"></td>
+            <td><input type="text" name="nama_pelanggan" placeholder="cth: Hajar"></td>
         </tr>    
         <tr>
             <td class="warna">Password</td>

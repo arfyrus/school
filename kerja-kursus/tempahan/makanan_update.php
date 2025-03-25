@@ -1,17 +1,17 @@
 <?php
 include("sambungan.php");
-include("jurujual_menu.php");
+include("pekerja_menu.php");
 
 if (isset($_POST["submit"])) {
-    $idmakanan = $_POST["idmakanan"];
-    $namamakanan = $_POST["namamakanan"];
+    $id_makanan = $_POST["id_makanan"];
+    $nama_makanan = $_POST["nama_makanan"];
     $harga = $_POST["harga"];
 
-    $namafail = $idmakanan."png";
+    $namafail = $id_makanan."png";
     $sementara = $_FILES["namafail"]["tmp_name"];
     move_uploaded_file($sementara, "imej/".basename($namafail));
 
-    $sql = "UPDATE makanan SET namamakanan = '$namamakanan', gambar = '$namafail', harga = $harga WHERE idmakanan = '$idmakanan'";
+    $sql = "UPDATE makanan SET nama_makanan = '$nama_makanan', gambar = '$namafail', harga = $harga WHERE id_makanan = '$id_makanan'";
     $result = mysqli_query($sambungan, $sql);
     if ($result == true)
     echo "<h4>Berjaya kemaskini</h4>";
@@ -19,13 +19,13 @@ if (isset($_POST["submit"])) {
     echo "<h4>Ralat : $sql<br>".mysqli_error($sambungan)."</h4>";
 }
 
-if (isset($_GET["idmakanan"])) $idmakanan = $_GET["idmakanan"];
+if (isset($_GET["id_makanan"])) $id_makanan = $_GET["id_makanan"];
 
-$sql = "SELECT * FROM makanan WHERE idmakanan = '$idmakanan'";
+$sql = "SELECT * FROM makanan WHERE id_makanan = '$id_makanan'";
 $result = mysqli_query($sambungan, $sql);
 while ($makanan = myswli_fetch_array($result)) {
-    $namamakanan = $makanan["namamakanan"];
-    $namafail = $idmakanan.".png";
+    $nama_makanan = $makanan["nama_makanan"];
+    $namafail = $id_makanan.".png";
     $harga = $makanan["harga"];
 }
 
@@ -39,11 +39,11 @@ while ($makanan = myswli_fetch_array($result)) {
     <table>
             <tr>
                 <td>ID makanan</td>
-                <td><input type="text" name="idmakanan" value="<?php echo $idmakanan; ?>"></td>
+                <td><input type="text" name="id_makanan" value="<?php echo $id_makanan; ?>"></td>
             </tr>
             <tr>
                 <td>Nama makanan</td>
-                <td><input type="text" name="namamakanan" value="<?php echo $namamakanan; ?>"></td>
+                <td><input type="text" name="nama_makanan" value="<?php echo $nama_makanan; ?>"></td>
             </tr>
             <tr>
                 <td class="warna">Gambar 350x320</td>
