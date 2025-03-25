@@ -14,10 +14,10 @@
             $berjaya = false;
 
             if (strtolower($namajadual) === "pelanggan") {
-                $idpelanggan = $medan[0];
+                $no_telefon = $medan[0];
                 $password = $medan[1];
                 $namapelanggan = $medan[2];
-                $sql = "insert into pelanggan values('$idpelanggan', '$password', '$namapelanggan')";
+                $sql = "insert into pelanggan values('$no_telefon', '$password', '$namapelanggan')";
                 if (mysqli_query($sambungan, $sql))
                     $berjaya = true; 
                 else

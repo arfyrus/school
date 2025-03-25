@@ -3,9 +3,9 @@
     include("sambungan.php");
 	include("pelanggan_menu.php");
 
-    $idpelanggan = $_SESSION["idpengguna"];
+    $no_telefon = $_SESSION["idpengguna"];
 
-    $sql = "select * from pelanggan where idpelanggan = '$idpelanggan'"; 
+    $sql = "select * from pelanggan where no_telefon = '$no_telefon'"; 
     $result = mysqli_query($sambungan, $sql);
     $pelanggan = mysqli_fetch_array($result);
     $namapelanggan = $pelanggan['namapelanggan'];
@@ -33,8 +33,8 @@
          
         $sql = "select * from tempahan 
                 join makanan on tempahan.idmakanan = makanan.idmakanan
-                join pelanggan on tempahan.idpelanggan = pelanggan.idpelanggan
-                where tempahan.idpelanggan = '$idpelanggan' and tarikh = '$today' ";
+                join pelanggan on tempahan.no_telefon = pelanggan.no_telefon
+                where tempahan.no_telefon = '$no_telefon' and tarikh = '$today' ";
         $result = mysqli_query($sambungan, $sql);
     
 
@@ -47,14 +47,14 @@
                         <td>$makanan[namamakanan]</td>
                         <td>$makanan[bilangan]</td>
                         <td>
-                            <a href='javascript:kemaskini(\"$idmakanan\",\"$idpelanggan\",\"$today\");'>
+                            <a href='javascript:kemaskini(\"$idmakanan\",\"$no_telefon\",\"$today\");'>
                                 <img src='imej/update.png'>
                             </a>
                         </td>
                         <td>RM $makanan[harga]</td>
                         <td>RM $jumlah_format</td>
                         <td>
-                            <a href='tempahan_delete.php?idmakanan=$idmakanan&&idpelanggan=$idpelanggan&&tarikh=$today'>
+                            <a href='tempahan_delete.php?idmakanan=$idmakanan&&no_telefon=$no_telefon&&tarikh=$today'>
                                  <img src='imej/delete.png'>
                             </a>
                          </td> 
@@ -73,6 +73,6 @@
 <script>
     function kemaskini(idm, idp, t) {
         var bil = prompt("Masukkan bilangan");
-        window.location = "tempahan_update.php?idmakanan=" + idm + "&&idpelanggan=" + idp + "&&tarikh=" + t + "&&bilangan=" + bil;
+        window.location = "tempahan_update.php?idmakanan=" + idm + "&&no_telefon=" + idp + "&&tarikh=" + t + "&&bilangan=" + bil;
     }
 </script>

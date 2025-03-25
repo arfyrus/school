@@ -3,11 +3,11 @@
 	include("jurujual_menu.php");
 
 	if (isset($_POST["submit"])) {
-		$idpelanggan = $_POST["idpelanggan"];
+		$no_telefon = $_POST["no_telefon"];
 		$password = $_POST["password"];
 		$namapelanggan = $_POST["namapelanggan"];
 
-		$sql = "insert into pelanggan values('$idpelanggan', '$password', '$namapelanggan')";
+		$sql = "insert into pelanggan values('$no_telefon', '$password', '$namapelanggan')";
 		$result = mysqli_query($sambungan, $sql);
 		if ($result == true)
 			echo "<h4>Berjaya tambah</h4>";
@@ -27,21 +27,21 @@
         <tr>
             <td class="warna">ID Pelanggan</td>
             <td><input required type="text" 
-            name="idpelanggan" placeholder="cth: P065"  
+            name="no_telefon" placeholder="cth: P065"  
             pattern="[A-Z0-9]{4}" 
             oninvalid="this.setCustomValidity('Sila masukkan 4 aksara')" 
             oninput="this.setCustomValidity('')"
             <?php  
-                       $sql = "SELECT * FROM pelanggan ORDER BY idpelanggan DESC LIMIT 1";
+                       $sql = "SELECT * FROM pelanggan ORDER BY no_telefon DESC LIMIT 1";
                        $result = mysqli_query($sambungan, $sql);
                        $bilrekod = mysqli_num_rows($result);
                        if ($bilrekod > 0) { 
                    		   $pelanggan = mysqli_fetch_array($result);
-                   		   $idpelanggan = ++$pelanggan["idpelanggan"];
+                   		   $no_telefon = ++$pelanggan["no_telefon"];
 		              }
 		              else
-			             $idpelanggan = "P001";
-		              echo "value = '$idpelanggan'";                    
+			             $no_telefon = "P001";
+		              echo "value = '$no_telefon'";                    
                    
             ?>
             >

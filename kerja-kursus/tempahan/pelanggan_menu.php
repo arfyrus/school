@@ -41,8 +41,8 @@
     
     <?php
        if (isset($_SESSION["idpengguna"])) {
-          $idpelanggan = $_SESSION["idpengguna"]; 
-          $sql = "select * from pelanggan where idpelanggan = '$idpelanggan' "; 
+          $no_telefon = $_SESSION["idpengguna"]; 
+          $sql = "select * from pelanggan where no_telefon = '$no_telefon' "; 
           $result = mysqli_query($sambungan, $sql);
           $pelanggan = mysqli_fetch_array($result);   
           echo "Selamat datang $pelanggan[namapelanggan]";

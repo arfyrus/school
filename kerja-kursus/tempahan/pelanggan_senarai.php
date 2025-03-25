@@ -17,17 +17,17 @@
         $sql = "select * from pelanggan";
         $result = mysqli_query($sambungan, $sql);
         while($pelanggan = mysqli_fetch_array($result)) {
-        $idpelanggan = $pelanggan["idpelanggan"];
-        echo "<tr>  <td>$pelanggan[idpelanggan]</td>
+        $no_telefon = $pelanggan["no_telefon"];
+        echo "<tr>  <td>$pelanggan[no_telefon]</td>
                     <td class='nama'>$pelanggan[namapelanggan]</td>
                     <td>$pelanggan[password]</td>
                     <td>
-                        <a href='pelanggan_update.php?idpelanggan=$idpelanggan'>
+                        <a href='pelanggan_update.php?no_telefon=$no_telefon'>
                             <img src='imej/update.png'>
                         </a>
                     </td>
                     <td>
-                        <a href='javascript:padam(\"$idpelanggan\");'>
+                        <a href='javascript:padam(\"$no_telefon\");'>
                             <img src='imej/delete.png'>
                         </a>
                     </td>
@@ -39,7 +39,7 @@
 <script>
     function padam(id)    {
         if (confirm("Adakah anda ingin padam") == true) {
-            window.location="pelanggan_delete.php?idpelanggan=" + id;
+            window.location="pelanggan_delete.php?no_telefon=" + id;
         }
     }
 </script>

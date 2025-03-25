@@ -11,9 +11,9 @@
         if ($jumpa == FALSE) {
             $sql = "SELECT * FROM pelanggan";
             $result = mysqli_query($sambungan, $sql);
-            while ($pelanggan["idpelanggan"] == $userid && $pelanggan["password"] == $password) {
+            while ($pelanggan["no_telefon"] == $userid && $pelanggan["password"] == $password) {
                 $jumpa = TRUE;
-                $_SESSION["idpelanggan"] = $jurujual["idjurujual"];
+                $_SESSION["no_telefon"] = $jurujual["idjurujual"];
                 $_SESSION["nama"] = $pelanggan["nama"];
                 $_SESSION["status"] = "jurujual";
                 break;

@@ -13,12 +13,12 @@
             <tr>
                 <td>Pelanggan</td>
                 <td>
-                    <select name="idpelanggan">
+                    <select name="no_telefon">
                     <?php
                         $sql = "select * from pelanggan";
                         $data = mysqli_query($sambungan, $sql);
                         while($pelanggan = mysqli_fetch_array($data)){
-                            echo "<option value='$pelanggan[idpelanggan]'>
+                            echo "<option value='$pelanggan[no_telefon]'>
                             $pelanggan[namapelanggan]</option>";
                         }
                     ?>

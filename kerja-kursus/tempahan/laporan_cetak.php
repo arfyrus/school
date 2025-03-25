@@ -10,11 +10,11 @@
     <div id="printarea">
     <?php
        if (isset($_POST['submit'])) {           
-            $idpelanggan = $_POST['idpelanggan'];
+            $no_telefon = $_POST['no_telefon'];
             $tarikh = $_POST['tarikh'];
             $pilih = $_POST['pilih'];
            
-            $sql = "select * from pelanggan where idpelanggan = '$idpelanggan' "; 
+            $sql = "select * from pelanggan where no_telefon = '$no_telefon' "; 
             $result = mysqli_query($sambungan, $sql);
             $pelanggan = mysqli_fetch_array($result);
             $namapelanggan = $pelanggan['namapelanggan'];
@@ -33,7 +33,7 @@
                 
                 $sql = "select * from tempahan 
                 join makanan on tempahan.idmakanan = makanan.idmakanan
-                where tempahan.idpelanggan = '$idpelanggan' and tempahan.tarikh = '$tarikh' ";
+                where tempahan.no_telefon = '$no_telefon' and tempahan.tarikh = '$tarikh' ";
 
                 $result = mysqli_query($sambungan, $sql);
                 while($tempahan = mysqli_fetch_array($result)) {  
@@ -66,7 +66,7 @@
                             
                 $sql = "select * from tempahan 
                 join makanan on tempahan.idmakanan = makanan.idmakanan
-                where tempahan.idpelanggan = '$idpelanggan' order by tarikh asc";
+                where tempahan.no_telefon = '$no_telefon' order by tarikh asc";
 
                 $result = mysqli_query($sambungan, $sql);
                 while($tempahan = mysqli_fetch_array($result)) {

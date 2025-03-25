@@ -17,13 +17,13 @@
     </select> <br>
 
     
-    <select name="idpelanggan">
+    <select name="no_telefon">
         <?php
             include('sambungan.php');
             $sql = "select * from pelanggan";
             $data = mysqli_query($sambungan, $sql);
             while ($pelanggan = mysqli_fetch_array($data)) {
-               echo "<option value='$pelanggan[idpelanggan]'>$pelanggan[namapelanggan]</option>";
+               echo "<option value='$pelanggan[no_telefon]'>$pelanggan[namapelanggan]</option>";
             }
         ?>
     </select>

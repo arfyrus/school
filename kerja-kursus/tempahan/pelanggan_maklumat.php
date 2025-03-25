@@ -2,9 +2,9 @@
     include("sambungan.php");
     include("jurujual_menu.php");
 
-	$idpelanggan = $_POST["idpelanggan"];
+	$no_telefon = $_POST["no_telefon"];
 
-	$sql = "select * from pelanggan where idpelanggan = '$idpelanggan'";
+	$sql = "select * from pelanggan where no_telefon = '$no_telefon'";
 
 	$result = mysqli_query($sambungan, $sql);
 	while($pelanggan = mysqli_fetch_array($result)) {
@@ -25,7 +25,7 @@
         </tr>
         <tr>
             <td class="maklumat">ID pelanggan</td>
-            <td class="maklumat"><?php echo $idpelanggan; ?></td>
+            <td class="maklumat"><?php echo $no_telefon; ?></td>
         </tr>
         <tr>
             <td class="maklumat">Nama</td>

@@ -3,13 +3,13 @@
     include("jurujual_menu.php");
 
 	if (isset($_POST["submit"])) {
-        $idpelanggan = $_POST["idpelanggan"];
+        $no_telefon = $_POST["no_telefon"];
 		$password = $_POST["password"];
 		$namapelanggan = $_POST["namapelanggan"];
 
 		$sql = "update pelanggan 
                 set password = '$password', namapelanggan = '$namapelanggan' 
-                where idpelanggan = '$idpelanggan'";
+                where no_telefon = '$no_telefon'";
 		$result = mysqli_query($sambungan, $sql);
 		if ($result == true)
 			echo "<h4>Berjaya kemaskini</h4>";
@@ -17,10 +17,10 @@
 			echo "<h4>Ralat : $sql<br>".mysqli_error($sambungan)."</h4>";
 	}
 
-    if (isset($_GET["idpelanggan"]))
-		$idpelanggan = $_GET["idpelanggan"];
+    if (isset($_GET["no_telefon"]))
+		$no_telefon = $_GET["no_telefon"];
 
-	$sql = "select * from pelanggan where idpelanggan = '$idpelanggan' ";
+	$sql = "select * from pelanggan where no_telefon = '$no_telefon' ";
 	$result = mysqli_query($sambungan, $sql);
 	while($pelanggan = mysqli_fetch_array($result)) {
 		$namapelanggan = $pelanggan["namapelanggan"];
@@ -36,7 +36,7 @@
     <table>
         <tr>
             <td>ID Pelanggan</td>
-            <td><input type="text" name="idpelanggan" value="<?php echo $idpelanggan; ?>"></td>
+            <td><input type="text" name="no_telefon" value="<?php echo $no_telefon; ?>"></td>
         </tr>
         <tr>
             <td>Nama Pelanggan</td>
