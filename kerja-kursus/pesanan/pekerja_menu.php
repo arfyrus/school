@@ -6,7 +6,7 @@
 
 <header>
     <img class="logo" src="imej/logo.jpg">
-    <img class="kelab" src="imej/namakedai.jpg">
+    <img class="kelab" src="imej/namakedai.png">
 </header>
 
 <nav>
