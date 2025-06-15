@@ -10,7 +10,7 @@
     justify: true,
     spacing: 2em,
     leading: 1.5em,
-    first-line-indent: (amount: 0.5in, all: true)
+    first-line-indent: (amount: 0.5in)
 )
 #set heading(numbering: "1.1")
 
@@ -347,55 +347,133 @@ table.cell(fill: red, []), table.cell(fill: red, []), table.cell(fill: red, []),
 #table(
     columns: (auto,) + 8 * (1fr,) + (0.5fr, 1fr,),
     align: horizon,
+    fill: (x, y) => {
+      if y == 0 {
+        black
+      } else if x == 0 or x == 1 or x == 2 {
+        yellow.lighten(45%)
+      } else if x == 3 or x == 4 or x == 5 {
+        green.lighten(45%)
+      } else if x == 6 or x == 7 {
+        aqua.lighten(45%)
+      } else if x > 7 {
+        red.lighten(45%)
+      }
+    },
     table.header(
-        [#underline[no\_ \ telefon]],
-        [#underline[nama\_ \ pelanggan]], 
-        [#underline[password]], 
-        [#underline[id\_ \ makanan]], 
-        [#underline[nama\_ \ makanan]], 
-        [#underline[harga]], 
-        [#underline[id\_ \ pekerja]], 
-        [#underline[nama\_ \ pekerja]], 
-        [#underline[tarikh]],
-        [#underline[bila \ ngan]],
-        [#underline[jumlah]]
+        table.cell([#text(fill: white, weight: "bold")[#underline[no\_ \ telefon]]]),
+        table.cell([#text(fill: white, weight: "bold")[#underline[nama\_ \ pelanggan]]]), 
+        table.cell([#text(fill: white, weight: "bold")[#underline[password]]]), 
+        table.cell([#text(fill: white, weight: "bold")[#underline[id\_ \ makanan]]]), 
+        table.cell([#text(fill: white, weight: "bold")[#underline[nama\_ \ makanan]]]), 
+        table.cell([#text(fill: white, weight: "bold")[#underline[harga]]]), 
+        table.cell([#text(fill: white, weight: "bold")[#underline[id\_ \ pekerja]]]), 
+        table.cell([#text(fill: white, weight: "bold")[#underline[nama\_ \ pekerja]]]), 
+        table.cell([#text(fill: white, weight: "bold")[#underline[tarikh]]]),
+        table.cell([#text(fill: white, weight: "bold")[#underline[bila \ ngan]]]),
+        table.cell([#text(fill: white, weight: "bold")[#underline[jumlah]]])
     ),
+    //table.cell(rowspan: 2)[0108982068],
+    //table.cell(rowspan: 2)[Thejendra],
+    //table.cell(rowspan: 2)[tchalla69],
+    //[mkn-01], [Salmon Sashimi], [RM8.00],
+    //[pkj-02], [Donald Trump],
+    //table.cell(rowspan: 2)[20241031], [3], [RM24.00],
+    //table.cell(rowspan: 2)[mkn-02],
+    //table.cell(rowspan: 2)[Udang],
+    //[RM9.00],
+    //table.cell(rowspan: 3)[pkj-01],
+    //table.cell(rowspan: 3)[Joe Biden],
+    //[1], [RM9.00],
+    //table.cell(rowspan: 4)[0196697201],
+    //table.cell(rowspan: 4)[Amir],
+    //table.cell(rowspan: 4)[nigga1488],
+    //[RM9.00],
+    //table.cell(rowspan: 4)[20241101],
+    //[4], [RM36.00], 
+    //[mkn-03], [Sup Miso], [RM13.50],
+    //[1], [RM13.50],
+    //[mnm-01], [Matcha Latte], [RM12.00],
+    //table.cell(rowspan: 2)[pkj-03],
+    //table.cell(rowspan: 2)[Bernie Sanders],
+    //[2], [RM24.00],
+    //[mnm-02], [Teh Hijau], [RM5.00],
+    //[1], [RM5.00],
+    //table.cell(rowspan: 3)[0189741311],
+    //table.cell(rowspan: 3)[Adam],
+    //table.cell(rowspan: 3)[adamdan \ ish092],
+    //[mkn-04], [Futomaki], [RM8.50],
+    //table.cell(rowspan: 2)[pkj-02],
+    //table.cell(rowspan: 2)[Donald Trump],
+    //table.cell(rowspan: 3)[20241102],
+    //[3], [RM 25.50],
+    //[mkn-01], [Salmon Sashimi], [RM8.00], [1], [RM8.00],
+    //[mnm-02], [Teh Hijau], [RM5.00], [pkj-03], [Bernie Sanders], [1], [RM5.00]
     table.cell(rowspan: 2)[0108982068],
     table.cell(rowspan: 2)[Thejendra],
     table.cell(rowspan: 2)[tchalla69],
-    [mkn-01], [Salmon Sashimi], [RM8.00],
-    [pkj-02], [Donald Trump],
-    table.cell(rowspan: 2)[20241031], [3], [RM24.00],
+    table.cell()[mkn-01],
+    table.cell()[Salmon Sashimi],
+    table.cell()[RM8.00],
+    table.cell()[pkj-02],
+    table.cell()[Donald Trump],
+    table.cell(rowspan: 2)[20241031],
+    table.cell()[3],
+    table.cell()[RM24.00],
     table.cell(rowspan: 2)[mkn-02],
     table.cell(rowspan: 2)[Udang],
-    [RM9.00],
+    table.cell()[RM9.00],
     table.cell(rowspan: 3)[pkj-01],
     table.cell(rowspan: 3)[Joe Biden],
-    [1], [RM9.00],
+    table.cell()[1],
+    table.cell()[RM9.00],
     table.cell(rowspan: 4)[0196697201],
     table.cell(rowspan: 4)[Amir],
     table.cell(rowspan: 4)[nigga1488],
-    [RM9.00],
+    table.cell()[RM9.00],
     table.cell(rowspan: 4)[20241101],
-    [4], [RM36.00], 
-    [mkn-03], [Sup Miso], [RM13.50],
-    [1], [RM13.50],
-    [mnm-01], [Matcha Latte], [RM12.00],
+    table.cell()[4],
+    table.cell()[RM36.00],
+    table.cell()[mkn-03],
+    table.cell()[Sup Miso],
+    table.cell()[RM13.50],
+    table.cell()[1],
+    table.cell()[RM13.50],
+    table.cell()[mnm-01],
+    table.cell()[Matcha Latte],
+    table.cell()[RM12.00],
     table.cell(rowspan: 2)[pkj-03],
     table.cell(rowspan: 2)[Bernie Sanders],
-    [2], [RM24.00],
-    [mnm-02], [Teh Hijau], [RM5.00],
-    [1], [RM5.00],
+    table.cell()[2],
+    table.cell()[RM24.00],
+    table.cell()[mnm-02],
+    table.cell()[Teh Hijau],
+    table.cell()[RM5.00],
+    table.cell()[1],
+    table.cell()[RM5.00],
     table.cell(rowspan: 3)[0189741311],
     table.cell(rowspan: 3)[Adam],
     table.cell(rowspan: 3)[adamdan \ ish092],
-    [mkn-04], [Futomaki], [RM8.50],
+    table.cell()[mkn-04],
+    table.cell()[Futomaki],
+    table.cell()[RM8.50],
     table.cell(rowspan: 2)[pkj-02],
     table.cell(rowspan: 2)[Donald Trump],
     table.cell(rowspan: 3)[20241102],
-    [3], [RM 25.50],
-    [mkn-01], [Salmon Sashimi], [RM8.00], [1], [RM8.00],
-    [mnm-02], [Teh Hijau], [RM5.00], [pkj-03], [Bernie Sanders], [1], [RM5.00]
+    table.cell()[3],
+    table.cell()[RM 25.50],
+    table.cell()[mkn-01],
+    table.cell()[Salmon Sashimi],
+    table.cell()[RM8.00],
+    table.cell()[1],
+    table.cell()[RM8.00],
+    table.cell()[mnm-02],
+    table.cell()[Teh Hijau],
+    table.cell()[RM5.00],
+    table.cell()[pkj-03],
+    table.cell()[Bernie Sanders],
+    table.cell()[1],
+    table.cell()[RM5.00]
 )
 
 #pagebreak()
@@ -404,22 +482,63 @@ table.cell(fill: red, []), table.cell(fill: red, []), table.cell(fill: red, []),
 
 ===== PESANAN
 
+#show table.cell: some => {
+    set align(center)
+    if some.y == 0 {
+      text(fill: white, weight: "bold")[#underline[#some]]
+    } else {
+      some
+    }
+}
+
 #table(
     columns: (auto,) + 8 * (1fr,) + (0.5fr, 1fr,),
     align: horizon,
+    fill: (x, y) => {
+      if y == 0 {
+        black
+      } else if x == 0 or x == 2 or x == 3{
+        yellow.lighten(45%)
+      } else if x == 1 or x == 4 or x == 5 {
+        green.lighten(45%)
+      } else if x == 6 or x == 7 {
+        aqua.lighten(45%)
+      } else if x > 7 {
+        red.lighten(45%)
+      }
+    },
     table.header(
-        [#underline[no\_ \ telefon]],
-        [#underline[id\_ \ makanan]], 
-        [#underline[nama\_ \ pelanggan]], 
-        [#underline[password]], 
-        [#underline[nama\_ \ makanan]], 
-        [#underline[harga]], 
-        [#underline[id\_ \ pekerja]], 
-        [#underline[nama\_ \ pekerja]], 
-        [#underline[tarikh]],
-        [#underline[bila \ ngan]],
-        [#underline[jumlah]]
+        table.cell([no\_ \ telefon]),
+        table.cell([id\_ \ makanan]), 
+        table.cell([nama\_ \ pelanggan]), 
+        table.cell([password]), 
+        table.cell([nama\_ \ makanan]), 
+        table.cell([harga]), 
+        table.cell([id\_ \ pekerja]), 
+        table.cell([nama\_ \ pekerja]), 
+        table.cell([tarikh]),
+        table.cell([bila \ ngan]),
+        table.cell([jumlah])
     ),
     [0108982068], [mkn-01], [Thejendra], [tchalla69], [Salmon Sashimi], [RM8.00], [pkj-02], [Donald Trump], [20241031], [3], [RM24.00],
-    [0108982068], [mkn-02], [Thejendra], [tchalla69], [Udang], [RM9.00], [pkj-01], [Joe Biden], [20241031], [1], [RM9.00]
+    [0108982068], [mkn-02], [Thejendra], [tchalla69], [Udang], [RM9.00], [pkj-01], [Joe Biden], [20241031], [1], [RM9.00],
+    [0196697201], [mkn-02], [Amir], [nigga1488], [Udang], [RM9.00], [pkj-01], [Joe Biden], [20241101], [4], [RM36.00],
+    [0196697201], [mkn-03], [Amir], [nigga1488], [Sup Miso], [RM13.50], [pkj-01], [Joe Biden], [20241101], [1], [RM13.50],
+    [0196697201], [mnm-01], [Amir], [nigga1488], [Matcha], [12.00], [pkj-03], [Bernie Sanders], [20241101], [2], [RM24.00],
+    [0196697201], [mnm-02], [Amir], [nigga1488], [Teh Hijau], [RM5.00], [pkj-03], [Bernie Sanders], [20241101], [1], [RM5.00],
+    [0189741311], [mkn-04], [Adam], [adamdan \ ish092], [Futomaki], [RM8.50], [pkj-02], [Donald Trump], [20241102], [3], [RM25.50],
+    [0189741311], [mkn-01], [Adam], [adamdan \ ish092], [Salmon Sashimi], [RM8.00], [pkj-02], [Donald Trump], [20241102], [1], [RM8.00],
+    [0189741311], [mnm-02], [Adam], [adamdan \ ish092], [Teh Hijau], [RM5.00], [pkj-02], [Donald Trump], [20241102], [1], [RM5.00],
 )
+
+===== Penerangan:
+
+- Kumpulan berulang dihapuskan. Setiap lajur dalam jadual mempunyai atribut yang atomik.
+- Kunci primer komposit dikenal pasti iaitu atribut 'no\_telefon' dan atribut 'id\_makanan'.
+
+===== Skema Hubungan:
+
+PESANAN(no\_telefon\<KP\>\<KA\>, kod\_makanan\<KP\>\<KA\>, nama\_pelanggan, password, nama\_makanan, harga, id\_pekerja, nama\_pekerja, tarikh, bilangan, jumlah)
+
+#pagebreak()
+
