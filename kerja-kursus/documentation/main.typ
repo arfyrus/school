@@ -8,7 +8,7 @@
 )
 #set par(
     justify: true,
-    spacing: 2em,
+    spacing: 2.5em,
     leading: 1.5em,
     first-line-indent: (amount: 0.5in)
 )
@@ -41,6 +41,12 @@
 ]
 
 #show outline.entry.where(level: 1): set text(weight: "bold")
+
+// Cover
+
+#include "cover.typ"
+
+#pagebreak()
 
 // Isi Kandungan
 
