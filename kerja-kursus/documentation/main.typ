@@ -334,11 +334,21 @@ table.cell(fill: red, []), table.cell(fill: red, []), table.cell(fill: red, []),
 
 == Algoritma
 
+#align(center)[
+    #image("images/flowchart.png", height: 80%)
+]
+
 == Gambar Rajah Hubungan (ERD)
+
+#align(center)[
+    #image("images/erd.png")
+]
 
 == Penormalan
 
 #show table: set text(size: 8pt)
+#set table(align: horizon)
+#set table.cell(align: center)
 
 ==== 0NF
 
@@ -346,7 +356,6 @@ table.cell(fill: red, []), table.cell(fill: red, []), table.cell(fill: red, []),
 
 #table(
     columns: (auto,) + 8 * (1fr,) + (0.5fr, 1fr,),
-    align: horizon,
     fill: (x, y) => {
       if y == 0 {
         black
@@ -361,54 +370,18 @@ table.cell(fill: red, []), table.cell(fill: red, []), table.cell(fill: red, []),
       }
     },
     table.header(
-        table.cell([#text(fill: white, weight: "bold")[#underline[no\_ \ telefon]]]),
-        table.cell([#text(fill: white, weight: "bold")[#underline[nama\_ \ pelanggan]]]), 
-        table.cell([#text(fill: white, weight: "bold")[#underline[password]]]), 
-        table.cell([#text(fill: white, weight: "bold")[#underline[id\_ \ makanan]]]), 
-        table.cell([#text(fill: white, weight: "bold")[#underline[nama\_ \ makanan]]]), 
-        table.cell([#text(fill: white, weight: "bold")[#underline[harga]]]), 
-        table.cell([#text(fill: white, weight: "bold")[#underline[id\_ \ pekerja]]]), 
-        table.cell([#text(fill: white, weight: "bold")[#underline[nama\_ \ pekerja]]]), 
-        table.cell([#text(fill: white, weight: "bold")[#underline[tarikh]]]),
-        table.cell([#text(fill: white, weight: "bold")[#underline[bila \ ngan]]]),
-        table.cell([#text(fill: white, weight: "bold")[#underline[jumlah]]])
+        table.cell([#text(fill: white, weight: "bold")[no\_ \ telefon]]),
+        table.cell([#text(fill: white, weight: "bold")[nama\_ \ pelanggan]]), 
+        table.cell([#text(fill: white, weight: "bold")[password]]), 
+        table.cell([#text(fill: white, weight: "bold")[id\_ \ makanan]]), 
+        table.cell([#text(fill: white, weight: "bold")[nama\_ \ makanan]]), 
+        table.cell([#text(fill: white, weight: "bold")[harga]]), 
+        table.cell([#text(fill: white, weight: "bold")[id\_ \ pekerja]]), 
+        table.cell([#text(fill: white, weight: "bold")[nama\_ \ pekerja]]), 
+        table.cell([#text(fill: white, weight: "bold")[tarikh]]),
+        table.cell([#text(fill: white, weight: "bold")[bila \ ngan]]),
+        table.cell([#text(fill: white, weight: "bold")[jumlah]])
     ),
-    //table.cell(rowspan: 2)[0108982068],
-    //table.cell(rowspan: 2)[Thejendra],
-    //table.cell(rowspan: 2)[tchalla69],
-    //[mkn-01], [Salmon Sashimi], [RM8.00],
-    //[pkj-02], [Donald Trump],
-    //table.cell(rowspan: 2)[20241031], [3], [RM24.00],
-    //table.cell(rowspan: 2)[mkn-02],
-    //table.cell(rowspan: 2)[Udang],
-    //[RM9.00],
-    //table.cell(rowspan: 3)[pkj-01],
-    //table.cell(rowspan: 3)[Joe Biden],
-    //[1], [RM9.00],
-    //table.cell(rowspan: 4)[0196697201],
-    //table.cell(rowspan: 4)[Amir],
-    //table.cell(rowspan: 4)[nigga1488],
-    //[RM9.00],
-    //table.cell(rowspan: 4)[20241101],
-    //[4], [RM36.00], 
-    //[mkn-03], [Sup Miso], [RM13.50],
-    //[1], [RM13.50],
-    //[mnm-01], [Matcha Latte], [RM12.00],
-    //table.cell(rowspan: 2)[pkj-03],
-    //table.cell(rowspan: 2)[Bernie Sanders],
-    //[2], [RM24.00],
-    //[mnm-02], [Teh Hijau], [RM5.00],
-    //[1], [RM5.00],
-    //table.cell(rowspan: 3)[0189741311],
-    //table.cell(rowspan: 3)[Adam],
-    //table.cell(rowspan: 3)[adamdan \ ish092],
-    //[mkn-04], [Futomaki], [RM8.50],
-    //table.cell(rowspan: 2)[pkj-02],
-    //table.cell(rowspan: 2)[Donald Trump],
-    //table.cell(rowspan: 3)[20241102],
-    //[3], [RM 25.50],
-    //[mkn-01], [Salmon Sashimi], [RM8.00], [1], [RM8.00],
-    //[mnm-02], [Teh Hijau], [RM5.00], [pkj-03], [Bernie Sanders], [1], [RM5.00]
     table.cell(rowspan: 2)[0108982068],
     table.cell(rowspan: 2)[Thejendra],
     table.cell(rowspan: 2)[tchalla69],
@@ -485,7 +458,7 @@ table.cell(fill: red, []), table.cell(fill: red, []), table.cell(fill: red, []),
 #show table.cell: some => {
     set align(center)
     if some.y == 0 {
-      text(fill: white, weight: "bold")[#underline[#some]]
+      text(fill: white, weight: "bold")[#some]
     } else {
       some
     }
@@ -493,7 +466,6 @@ table.cell(fill: red, []), table.cell(fill: red, []), table.cell(fill: red, []),
 
 #table(
     columns: (auto,) + 8 * (1fr,) + (0.5fr, 1fr,),
-    align: horizon,
     fill: (x, y) => {
       if y == 0 {
         black
@@ -508,8 +480,8 @@ table.cell(fill: red, []), table.cell(fill: red, []), table.cell(fill: red, []),
       }
     },
     table.header(
-        table.cell([no\_ \ telefon]),
-        table.cell([id\_ \ makanan]), 
+        table.cell([#underline[no\_ \ telefon]]),
+        table.cell([#underline[id\_ \ makanan]]), 
         table.cell([nama\_ \ pelanggan]), 
         table.cell([password]), 
         table.cell([nama\_ \ makanan]), 
@@ -538,7 +510,233 @@ table.cell(fill: red, []), table.cell(fill: red, []), table.cell(fill: red, []),
 
 ===== Skema Hubungan:
 
-PESANAN(no\_telefon\<KP\>\<KA\>, kod\_makanan\<KP\>\<KA\>, nama\_pelanggan, password, nama\_makanan, harga, id\_pekerja, nama\_pekerja, tarikh, bilangan, jumlah)
+PESANAN (no\_telefon\<KP\>\<KA\>, kod\_makanan\<KP\>\<KA\>, nama\_pelanggan, password, nama\_makanan, harga, id\_pekerja, nama\_pekerja, tarikh, bilangan, jumlah)
 
 #pagebreak()
 
+==== 2NF
+
+#show table: set text(size: 10pt)
+
+===== PELANGGAN
+
+#table(
+    columns: (auto,) * 3,
+    fill: (x, y) => {
+        if y == 0 {
+            black
+        } else {
+            yellow.lighten(45%)
+        }
+    },
+    table.header([#underline[no\_telefon]], [nama\_pelanggan], [password]),
+    [0108982068], [Thejendra], [tchalla69],
+    [0196697201], [Amir], [nigga1488],
+    [0189741311], [Adam], [adamdanish092],
+)
+
+===== MAKANAN
+
+#table(
+    columns: (auto,) * 5,
+    fill: (x, y) => {
+        if y == 0 {
+            black
+        } else if x <= 2 {
+            green.lighten(45%)
+        } else if x > 2 {
+            aqua.lighten(45%)
+        }
+    },
+    table.header([#underline[id\_makanan]], [nama\_makanan], [harga], [id\_pekerja], [nama\_pekerja]),
+    [mkn-01], [Salmon Sashimi], [RM8.00], [pkj-02], [Donald Trump],
+    [mkn-02], [Udang], [RM9.00], [pkj-01], [Joe Biden],
+    [mkn-03], [Sup Miso], [RM13.50], [pkj-01], [Joe Biden],
+    [mkn-04], [Futomaki], [RM8.50], [pkj-02], [Donald Trump],
+    [mnm-01], [Matcha], [RM12.00], [pkj-03], [Bernie Sanders],
+    [mnm-02], [Teh Hijau], [RM5.00], [pkj-03], [Bernie Sanders],
+)
+
+===== PESANAN
+
+#table(
+    columns: (auto,) * 5,
+    fill: (x, y) => {
+        if y == 0 {
+            black
+        } else if x == 0 {
+            yellow.lighten(45%)
+        } else if x == 1 {
+            green.lighten(45%)
+        } else {
+            red.lighten(45%)
+        }
+    },
+    table.header([#underline[no\_telefon]], [#underline[id\_makanan]], [tarikh], [bilangan], [jumlah]),
+    [0108982068], [mkn-01], [20241031], [3], [RM24.00],
+    [0108982068], [mkn-02], [20241031], [1], [RM9.00],
+    [0196697201], [mkn-02], [20241101], [4], [RM36.00],
+    [0196697201], [mkn-03], [20241101], [1], [RM13.50],
+    [0196697201], [mnm-01], [20241101], [2], [RM24.00],
+    [0196697201], [mnm-02], [20241101], [1], [RM5.00],
+    [0189741311], [mkn-04], [20241102], [3], [RM25.00],
+    [0189741311], [mkn-01], [20241102], [1], [RM8.00],
+    [0189741311], [mnm-02], [20241102], [1], [RM5.00],
+)
+
+===== Penerangan:
+
+- Jadual 'PESANAN' dipecahkan kepada tiga buah jadual iaitu 'PELANGGAN', 'MAKANAN', dan 'PESANAN'.
+
+- Kebergantungan fungsi separa dikenal pasti dan dihapuskan.
+
+- Setiap satu jadual mempunyai atribut kunci primer.
+
+- Masih terdapat kebergantungan fungsi transitif di jadual 'MAKANAN' iatu 'nama\_pekerja' bergantung secara transitif kepada 'id\_pekerja'.
+
+===== Skema Hubungan:
+
+#par(first-line-indent: 0pt)[
+    PESANAN (no\_telefon\<KP\>\<KA\>, kod\_makanan\<KP\>\<KA\>, tarikh, bilangan, jumlah)
+]
+
+#par(first-line-indent: 0pt)[
+    PELANGGAN (no\_telefon\<KP\>, nama\_pelanggan, password)
+]
+
+#par(first-line-indent: 0pt)[
+    MAKANAN (kod\_makanan\<KP\>, nama\_makanan, harga, id\_pekerja, nama\_pekerja)
+]
+
+==== 3NF
+
+===== PELANGGAN
+
+#table(
+    columns: (auto,) * 3,
+    fill: (x, y) => {
+        if y == 0 {
+            black
+        } else {
+            yellow.lighten(45%)
+        }
+    },
+    table.header([#underline[no\_telefon]], [nama\_pelanggan], [password]),
+    [0108982068], [Thejendra], [tchalla69],
+    [0196697201], [Amir], [nigga1488],
+    [0189741311], [Adam], [adamdanish092],
+)
+
+===== MAKANAN
+
+#table(
+    columns: (auto,) * 4,
+    fill: (x, y) => {
+        if y == 0 {
+            black
+        } else if x <= 2 {
+            green.lighten(45%)
+        } else if x > 2 {
+            aqua.lighten(45%)
+        }
+    },
+    table.header([#underline[id\_makanan]], [nama\_makanan], [harga], [id\_pekerja]),
+    [mkn-01], [Salmon Sashimi], [RM8.00], [pkj-02],
+    [mkn-02], [Udang], [RM9.00], [pkj-01],
+    [mkn-03], [Sup Miso], [RM13.50], [pkj-01],
+    [mkn-04], [Futomaki], [RM8.50], [pkj-02],
+    [mnm-01], [Matcha], [RM12.00], [pkj-03],
+    [mnm-02], [Teh Hijau], [RM5.00], [pkj-03],
+)
+
+===== PEKERJA
+
+#table(
+    columns: (auto,) * 2,
+    fill: (x, y) => {
+        if y == 0 {
+            black
+        } else {
+            aqua.lighten(45%)
+        }
+    },
+    table.header([#underline[id\_pekerja]], [nama_pekerja]),
+    [pkj-01], [Joe Biden],
+    [pkj-02], [Donald Trump],
+    [pkj-03], [Bernie Sanders],
+)
+
+===== PESANAN
+
+#table(
+    columns: (auto,) * 5,
+    fill: (x, y) => {
+        if y == 0 {
+            black
+        } else if x == 0 {
+            yellow.lighten(45%)
+        } else if x == 1 {
+            green.lighten(45%)
+        } else {
+            red.lighten(45%)
+        }
+    },
+    table.header([#underline[no\_telefon]], [#underline[id\_makanan]], [tarikh], [bilangan], [jumlah]),
+    [0108982068], [mkn-01], [20241031], [3], [RM24.00],
+    [0108982068], [mkn-02], [20241031], [1], [RM9.00],
+    [0196697201], [mkn-02], [20241101], [4], [RM36.00],
+    [0196697201], [mkn-03], [20241101], [1], [RM13.50],
+    [0196697201], [mnm-01], [20241101], [2], [RM24.00],
+    [0196697201], [mnm-02], [20241101], [1], [RM5.00],
+    [0189741311], [mkn-04], [20241102], [3], [RM25.00],
+    [0189741311], [mkn-01], [20241102], [1], [RM8.00],
+    [0189741311], [mnm-02], [20241102], [1], [RM5.00],
+)
+
+===== Penerangan:
+
+- Kebergantungan fungsi transitif dihapuskan dengan memecahkan jadual 'MAKANAN' kepada jadual 'MAKANAN' dan 'PEKERJA'.
+
+===== Skema Hubungan:
+
+#par(first-line-indent: 0pt)[
+    PESANAN (no\_telefon\<KP\>\<KA\>, kod\_makanan\<KP\>\<KA\>, tarikh, bilangan, jumlah)
+]
+
+#par(first-line-indent: 0pt)[
+    PELANGGAN (no\_telefon\<KP\>, nama\_pelanggan, password)
+]
+
+#par(first-line-indent: 0pt)[
+    MAKANAN (kod\_makanan\<KP\>, nama\_makanan, harga, id\_pekerja\<KA\>)
+]
+
+#par(first-line-indent: 0pt)[
+    PEKERJA (id\_pekerja\<KP\>, nama\_pekerja)
+]
+
+== Antara Muka Input/Output
+
+=== MENU (SWITCHBOARD)
+
+#align(center)[
+    #image("images/home.jpg", height: 35%)
+]
+
+=== Borang Daftaran
+
+#align(center)[
+    #image("images/login.jpg", height: 35%)
+]
+
+=== Borang Tempahan
+
+#align(center)[
+    #image("images/order.jpg", height: 35%)
+]
+
+=== Laporan
+
+#align(center)[
+    #image("images/receipt.jpg", height: 35%)
+]
