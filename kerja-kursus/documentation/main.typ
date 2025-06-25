@@ -13,6 +13,7 @@
     first-line-indent: (amount: 0.5in)
 )
 #set heading(numbering: "1.1")
+#set pagebreak(weak: true)
 
 #show heading.where(level: 1): some => block(width: 100%)[
     #set align(center)
@@ -73,6 +74,14 @@ Sekali lagi, saya mengucapkan terima kasih kepada semua pihak yang terlibat dala
 
 #include "fasa1.typ"
 
+#pagebreak()
+
 // Fasa 2
 
 #include "fasa2.typ"
+
+#pagebreak()
+
+// Fasa 3
+
+#include "fasa3.typ"
